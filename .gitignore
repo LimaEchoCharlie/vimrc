@@ -1,0 +1,4 @@
+# ignore default and plugin folders
+autoload/**
+spell/**
+bundle/**
