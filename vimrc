@@ -16,12 +16,20 @@ set autoindent
 " writes the content of the file automatically if you call :make
 set autowrite
 
+" always display the status line always
+set laststatus=2
+" decrease the update time of the status line
+set updatetime=50
+
 " Turn on autocomments
 set formatoptions+=c formatoptions+=r formatoptions+=o
 
 execute pathogen#infect()
 
 filetype plugin indent on
+
+" map redo to leader u
+map <silent> <leader>u <c-r> <CR>
 
 " use arrows to cycle through buffers
 map <silent> <Right> :bnext <CR>
@@ -46,6 +54,7 @@ map <silent> <leader><Left> :<c-o> <CR>
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader><space> :GoDeclsDir <CR>
 
 " extra syntax highlighing 
 let g:go_highlight_types = 1
@@ -57,8 +66,16 @@ let g:go_highlight_operators = 1
 " use goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 
-" run metalinter
+" run metalinter on saving
 let g:go_metalinter_autosave = 1
+"
+let g:go_metalinter_enabled= ['aligncheck', 'deadcode', 'dupl', 'errcheck', 'gas', 'goconst', 'gocyclo', 'goimports', 'golint', 'gosimple', 'gotype', 'gotypex', 'ineffassign', 'interfacer', 'lll', 'megacheck', 'misspell', 'safesql', 'staticcheck', 'structcheck', 'unconvert', 'unparam', 'unused', 'varcheck', 'vet'] 
+
+" turn on identifier resolution
+let g:go_auto_type_info = 1
+
+" automatically see all matching identifiers under the cursor
+" let g:go_auto_sameids = 1 " currently not working
 
 
 """"""""""""""""""""""
