@@ -19,7 +19,7 @@ set autowrite
 " always display the status line always
 set laststatus=2
 " decrease the update time of the status line
-set updatetime=50
+set updatetime=150
 
 " Turn on autocomments
 set formatoptions+=c formatoptions+=r formatoptions+=o
@@ -39,6 +39,10 @@ map <silent> <Left> :bprev <CR>
 map <silent> <leader><Right> :<c-i> <CR>
 map <silent> <leader><Left> :<c-o> <CR>
 
+" set color column to DarkOrange
+set textwidth=80
+set colorcolumn=+1
+highlight ColorColumn ctermbg=208 
 
 " save backup files elsewhere
 
@@ -69,7 +73,8 @@ let g:go_fmt_command = "goimports"
 " run metalinter on saving
 let g:go_metalinter_autosave = 1
 "
-let g:go_metalinter_enabled= ['aligncheck', 'deadcode', 'dupl', 'errcheck', 'gas', 'goconst', 'gocyclo', 'goimports', 'golint', 'gosimple', 'gotype', 'gotypex', 'ineffassign', 'interfacer', 'lll', 'megacheck', 'misspell', 'safesql', 'staticcheck', 'structcheck', 'unconvert', 'unparam', 'unused', 'varcheck', 'vet'] 
+let g:go_metalinter_enabled= ['aligncheck', 'deadcode', 'dupl', 'errcheck', 'gas', 'goconst', 'gocyclo', 'goimports', 'golint', 'gosimple', 'gotypex', 'ineffassign', 'interfacer', 'lll', 'megacheck', 'misspell', 'safesql', 'staticcheck', 'structcheck', 'unconvert', 'unparam', 'unused', 'varcheck', 'vet'] 
+" note: removed gotype
 
 " turn on identifier resolution
 let g:go_auto_type_info = 1
